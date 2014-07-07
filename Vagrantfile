@@ -12,12 +12,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # EasyEngine Setup
   config.vm.provision :shell, path: "easyengine.sh"
 
-  config.ssh.forward_agent = true
 
   # Share an additional folder to the guest VM.
+  config.ssh.forward_agent = true
   config.vm.synced_folder "www/", "/var/www/", :owner => "www-data", :mount_options => [ "dmode=775", "fmode=774" ]
 
-    # Configurations from 1.0.x can be placed in Vagrant 1.1.x specs like the following.
   config.vm.provider :virtualbox do |v|
     v.customize ["modifyvm", :id, "--memory", 512]
     v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
