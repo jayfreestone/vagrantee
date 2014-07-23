@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 apt-get install -y curl
-curl -sL rt.cx/ee | sudo bash
+wget -qO ee rt.cx/ee && sudo bash ee 
 source /etc/bash_completion.d/ee
-ee system install
+ee stack install
 cat ~/.my.cnf
